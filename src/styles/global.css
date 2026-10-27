@@ -3,3 +3,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Suppress any Netlify injected badge/drawer elements */
+#netlify-badge,
+.netlify-badge,
+[data-netlify-badge],
+.netlify-drawer,
+#netlify-drawer,
+[class*="netlify-badge"],
+[id*="netlify-badge"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
