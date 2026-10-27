@@ -75,48 +75,34 @@ import Contact from '../components/Contact.astro';
     </section>
 
     {/* Projects Section */}
-    <section id="projects" class="py-24 px-8 lg:px-24 bg-[#E3D0C3] relative z-10 opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section">
+    <section id="projects" class="py-20 md:py-24 px-8 lg:px-24 bg-[#E3D0C3] relative z-10 opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section">
       <h2 class="text-5xl font-black text-[#634D75] mb-12 tracking-tighter">Selected Works.</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-7xl mx-auto opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section" style="transition-delay: 200ms;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full max-w-4xl mx-auto opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section" style="transition-delay: 200ms;">
         
         {/* Card 1: IMPA */}
-        <div class="flex flex-col items-center max-w-[380px] mx-auto w-full group">
-          <a href="/projects/impa" class="relative w-full aspect-[2/3] rounded-full overflow-hidden shadow-xl mb-6 block border-4 border-white/40">
-            <div class="absolute inset-0 bg-[url('/dresuar.webp')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-            <div class="absolute inset-0 bg-[#634D75]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class="bg-white/70 backdrop-blur-sm p-4 rounded-full text-[#634D75]">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </div>
+        <div class="flex flex-col items-center justify-center p-10 md:p-12 rounded-3xl bg-white/25 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <a href="https://www.impamobilya.com/" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center">
+            <div class="h-20 flex items-center justify-center mb-6">
+              <img src="/impa.png" alt="IMPA Logo" class="h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_10px_rgba(99,77,117,0.15)] transition-transform duration-300 group-hover:scale-105" />
             </div>
+            <span class="text-base font-bold text-[#634D75] group-hover:text-[#9B85AD] transition-colors flex items-center gap-1.5 underline-offset-4 group-hover:underline">
+              impamobilya.com
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </span>
           </a>
-          <img src="/impa.png" alt="IMPA Logo" class="h-20 md:h-24 w-auto object-contain mb-4 drop-shadow-[0_4px_10px_rgba(99,77,117,0.15)] transition-transform duration-300 hover:scale-105" />
-          <p class="text-[#634D75] text-center text-sm leading-relaxed mb-5 px-4 font-medium">Premium furniture platform & dynamic catalog management.</p>
-          <div class="flex flex-wrap justify-center gap-2">
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Flutter</span>
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Dart</span>
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Supabase</span>
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Figma</span>
-          </div>
         </div>
         
         {/* Card 2: ALBÜMEVİ */}
-        <div class="flex flex-col items-center max-w-[380px] mx-auto w-full group">
-          <a href="/projects/albumevi" class="relative w-full aspect-[2/3] rounded-full overflow-hidden shadow-xl mb-6 block border-4 border-white/40">
-            <div class="absolute inset-0 bg-[url('/albumevid.webp')] bg-cover bg-center transition-transform duration-700 group-hover:scale-105"></div>
-            <div class="absolute inset-0 bg-[#634D75]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class="bg-white/70 backdrop-blur-sm p-4 rounded-full text-[#634D75]">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </div>
+        <div class="flex flex-col items-center justify-center p-10 md:p-12 rounded-3xl bg-white/25 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+          <a href="https://albumevi.com.tr" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center">
+            <div class="h-20 flex items-center justify-center mb-6">
+              <img src="/albumevilogo.png" alt="Albumevi Logo" class="h-14 md:h-16 w-auto object-contain drop-shadow-[0_4px_10px_rgba(99,77,117,0.8)] transition-transform duration-300 group-hover:scale-105" />
             </div>
+            <span class="text-base font-bold text-[#634D75] group-hover:text-[#9B85AD] transition-colors flex items-center gap-1.5 underline-offset-4 group-hover:underline">
+              albumevi.com.tr
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </span>
           </a>
-          <img src="/albumevilogo.png" alt="Albumevi Logo" class="h-16 w-auto object-contain mb-4 drop-shadow-[0_4px_10px_rgba(99,77,117,0.8)] transition-transform duration-300 hover:scale-105" />
-          <p class="text-[#634D75] text-center text-sm leading-relaxed mb-5 px-4 font-medium">Digital platform and web infrastructure for professional school photography.</p>
-          <div class="flex flex-wrap justify-center gap-2">
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">React</span>
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Figma</span>
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Supabase</span>
-            <span class="px-4 py-1.5 rounded-full bg-[#9B85AD]/10 text-[#634D75] text-xs font-bold border border-[#9B85AD]/30 shadow-sm">Cloudflare</span>
-          </div>
         </div>
 
       </div>
