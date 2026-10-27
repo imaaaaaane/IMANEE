@@ -1,0 +1,33 @@
+---
+---
+<section id="contact-form" class="py-24 px-8 lg:px-24 bg-[#E3D0C3] text-[#634D75] relative z-10 reveal-section opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    {/* Left Column */}
+    <div>
+      <h2 class="text-5xl md:text-7xl font-black text-[#634D75] tracking-tighter leading-tight">
+        Let's build something<br/>incredible.
+      </h2>
+      <p class="mt-6 text-lg text-[#634D75]/80 max-w-md font-light">
+        Whether you have a full-stack product idea, need a robust embedded system integration, or just want to say hi, my inbox is open.
+      </p>
+    </div>
+
+    {/* Right Column (Form) */}
+    <div class="bg-white/30 backdrop-blur-xl border border-white/50 shadow-xl rounded-[2.5rem] p-8 md:p-10">
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+        <input type="hidden" name="access_key" value="7db86680-44b7-459f-994c-db34f1511b27" />
+        <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+
+        <input type="text" name="name" placeholder="Your Name" required class="w-full bg-transparent border-b border-[#634D75]/30 focus:border-[#634D75] text-[#634D75] placeholder-[#634D75]/60 py-3 outline-none transition-colors" />
+        <input type="email" name="email" placeholder="Your Email" required class="w-full bg-transparent border-b border-[#634D75]/30 focus:border-[#634D75] text-[#634D75] placeholder-[#634D75]/60 py-3 outline-none transition-colors" />
+        <input type="tel" name="phone" placeholder="Your Phone Number" class="w-full bg-transparent border-b border-[#634D75]/30 focus:border-[#634D75] text-[#634D75] placeholder-[#634D75]/60 py-3 outline-none transition-colors" />
+        <textarea name="message" placeholder="Tell me about your project..." required class="w-full bg-transparent border-b border-[#634D75]/30 focus:border-[#634D75] text-[#634D75] placeholder-[#634D75]/60 py-3 outline-none transition-colors h-32 resize-none"></textarea>
+        <button type="submit" class="bg-[#9B85AD] hover:bg-[#634D75] text-white font-bold py-4 rounded-xl transition-colors w-full !mt-6">
+          Send Message
+        </button>
+      </form>
+    </div>
+    
+  </div>
+</section>

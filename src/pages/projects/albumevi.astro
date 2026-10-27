@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="ALBÜMEVİ - Project Details">
+  <main class="min-h-screen bg-gradient-to-b from-[#F5F2F7] via-[#EFEAF2] to-[#E3D0C3] pt-24 pb-16 px-6">
+    <!-- Logo -->
+    <img src="/albumevilogo.png" alt="Albumevi Logo" class="h-32 md:h-40 w-auto object-contain mx-auto mb-8 drop-shadow-sm" />
+    
+    <!-- Title & Date -->
+    <h1 class="text-[#634D75] text-5xl md:text-6xl font-black text-center mb-3">ALBÜMEVİ</h1>
+    <p class="text-black font-bold text-xl text-center mb-10">Project Date: 2026</p>
+    
+    <!-- Description -->
+    <p class="text-black text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-center font-medium mb-12">
+      Comprehensive digital platform and web infrastructure for professional school photography (okul çekimleri). Featuring edge-deployed photo management, custom photobook templates, and secure delivery architectures tailored for seamless client experiences.
+    </p>
+    
+    <!-- Tags & Button Container -->
+    <div class="flex flex-col items-center gap-8 mt-2">
+      <div class="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-[2.5rem] py-6 px-8 flex flex-wrap items-center justify-center gap-4 shadow-sm border border-white/50">
+        <span class="px-6 py-3 rounded-full bg-[#634D75] text-white text-sm font-bold shadow-md hover:bg-[#523d61] transition-colors cursor-default">React</span>
+        <span class="px-6 py-3 rounded-full bg-[#634D75] text-white text-sm font-bold shadow-md hover:bg-[#523d61] transition-colors cursor-default">Supabase</span>
+        <span class="px-6 py-3 rounded-full bg-[#634D75] text-white text-sm font-bold shadow-md hover:bg-[#523d61] transition-colors cursor-default">Figma</span>
+        <span class="px-6 py-3 rounded-full bg-[#634D75] text-white text-sm font-bold shadow-md hover:bg-[#523d61] transition-colors cursor-default">Cloudflare</span>
+      </div>
+      
+      <a href="https://www.albumevi.com.tr" target="_blank" class="px-10 py-4 rounded-full bg-[#634D75] text-white text-lg font-black shadow-[0_8px_16px_rgba(99,77,117,0.25)] hover:bg-[#523d61] hover:scale-105 hover:shadow-[0_12px_24px_rgba(99,77,117,0.35)] transition-all duration-300 flex items-center gap-3">
+        Visit Site 
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      </a>
+    </div>
+
+    <!-- Project Showcase Section -->
+    <section class="w-full">
+      <h2 class="text-[#634D75] text-2xl md:text-3xl font-black text-center mt-24 mb-12 tracking-tight">Project Showcase.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 max-w-7xl mx-auto pb-32 px-6 items-start">
+        <img src="/show1.png" alt="Albumevi 1" class="w-full h-auto rounded-[2rem] shadow-2xl border border-white/60 ring-1 ring-black/5 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(99,77,117,0.2)] transition-all duration-700 object-cover" />
+        
+        <img src="/show2.png" alt="Albumevi 2" class="w-full h-auto rounded-[2rem] shadow-2xl border border-white/60 ring-1 ring-black/5 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(99,77,117,0.2)] transition-all duration-700 object-cover md:mt-16" />
+        
+        <img src="/show3.png" alt="Albumevi 3" class="w-full h-auto rounded-[2rem] shadow-2xl border border-white/60 ring-1 ring-black/5 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(99,77,117,0.2)] transition-all duration-700 object-cover" />
+      </div>
+    </section>
+  </main>
+</Layout>
