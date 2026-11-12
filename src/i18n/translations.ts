@@ -88,16 +88,21 @@ export interface TranslationDictionary {
   projectsTag: string;
   projectsHeading: string;
 
-  // Contact Section
+  // Contact + Map Showcase & Structured Footer
+  contactTag: string;
   contactHeadingHtml: string;
   contactSubtitle: string;
-  contactNamePlaceholder: string;
-  contactEmailPlaceholder: string;
-  contactPhonePlaceholder: string;
-  contactMessagePlaceholder: string;
-  contactSubmit: string;
-
-  // Footer
+  contactPhoneLabel: string;
+  contactWhatsappLabel: string;
+  contactWhatsappAction: string;
+  contactEmailLabel: string;
+  contactAddressLabel: string;
+  contactDirectionsBtn: string;
+  contactOpenMaps: string;
+  footerBrandDesc: string;
+  footerNavTitle: string;
+  footerServicesTitle: string;
+  footerContactTitle: string;
   footerRights: string;
 
   // Project Detail Pages
@@ -197,15 +202,22 @@ export const translations: Record<Lang, TranslationDictionary> = {
     projectsTag: '03 // RÉALISATIONS',
     projectsHeading: 'Projets Sélectionnés.',
 
+    contactTag: '04 // CONTACT',
     contactHeadingHtml: "Construisons quelque chose<br/>d'exceptionnel.",
     contactSubtitle:
-      'Un projet de plateforme web, une application mobile ou une campagne Google Ads à structurer ? Échangez directement avec moi.',
-    contactNamePlaceholder: 'Votre nom',
-    contactEmailPlaceholder: 'Votre adresse e-mail',
-    contactPhonePlaceholder: 'Votre numéro de téléphone',
-    contactMessagePlaceholder: 'Parlez-moi de votre projet...',
-    contactSubmit: 'Envoyer le message',
-
+      'Un projet de plateforme web, une application mobile ou une campagne Google Ads à lancer ? Contactez-moi directement par téléphone, WhatsApp, e-mail ou à notre bureau.',
+    contactPhoneLabel: 'TÉLÉPHONE DIRECT',
+    contactWhatsappLabel: 'WHATSAPP DIRECT',
+    contactWhatsappAction: 'Démarrer une discussion →',
+    contactEmailLabel: 'ADRESSE E-MAIL',
+    contactAddressLabel: 'BUREAU / LOCALISATION',
+    contactDirectionsBtn: 'Obtenir l’itinéraire →',
+    contactOpenMaps: 'Ouvrir dans Google Maps ↗',
+    footerBrandDesc:
+      "Ingénierie logicielle Full-Stack, architectures mobiles iOS/Android et pilotage d'acquisition Google Ads par Imane Himmich.",
+    footerNavTitle: 'NAVIGATION',
+    footerServicesTitle: 'EXPERTISES',
+    footerContactTitle: 'CONTACT DIRECT',
     footerRights: 'Tous droits réservés.',
 
     projectDate: 'Date du projet : 2026',
@@ -305,15 +317,22 @@ export const translations: Record<Lang, TranslationDictionary> = {
     projectsTag: '03 // PROJECTS',
     projectsHeading: 'Selected Works.',
 
+    contactTag: '04 // CONTACT',
     contactHeadingHtml: "Let's build something<br/>incredible.",
     contactSubtitle:
-      'Planning a custom web platform, mobile application, or Google Ads growth strategy? Reach out directly—no agency middlemen.',
-    contactNamePlaceholder: 'Your Name',
-    contactEmailPlaceholder: 'Your Email',
-    contactPhonePlaceholder: 'Your Phone Number',
-    contactMessagePlaceholder: 'Tell me about your project...',
-    contactSubmit: 'Send Message',
-
+      'Planning a custom web platform, mobile application, or Google Ads growth strategy? Reach out directly via phone, WhatsApp, email, or visit our office.',
+    contactPhoneLabel: 'DIRECT PHONE',
+    contactWhatsappLabel: 'WHATSAPP DIRECT',
+    contactWhatsappAction: 'Start a conversation →',
+    contactEmailLabel: 'EMAIL ADDRESS',
+    contactAddressLabel: 'OFFICE LOCATION',
+    contactDirectionsBtn: 'Get Directions →',
+    contactOpenMaps: 'Open in Google Maps ↗',
+    footerBrandDesc:
+      'Full-Stack Software Engineering, iOS & Android Mobile Architecture, and Google Ads Growth Management by Imane Himmich.',
+    footerNavTitle: 'NAVIGATION',
+    footerServicesTitle: 'CAPABILITIES',
+    footerContactTitle: 'DIRECT CONTACT',
     footerRights: 'All rights reserved.',
 
     projectDate: 'Project Date: 2026',
@@ -413,15 +432,22 @@ export const translations: Record<Lang, TranslationDictionary> = {
     projectsTag: '03 // PROJELER',
     projectsHeading: 'Seçilmiş Projeler.',
 
+    contactTag: '04 // İLETİŞİM',
     contactHeadingHtml: 'Birlikte olağanüstü<br/>bir şey inşa edelim.',
     contactSubtitle:
-      'Özel bir web platformu, mobil uygulama veya Google Ads büyüme stratejisi mi planlıyorsunuz? Aracı olmadan doğrudan benimle iletişime geçin.',
-    contactNamePlaceholder: 'Adınız Soyadınız',
-    contactEmailPlaceholder: 'E-posta Adresiniz',
-    contactPhonePlaceholder: 'Telefon Numaranız',
-    contactMessagePlaceholder: 'Projenizden bahsedin...',
-    contactSubmit: 'Mesaj Gönder',
-
+      'Özel bir web platformu, mobil uygulama veya Google Ads büyüme stratejisi mi planlıyorsunuz? Telefon, WhatsApp, e-posta veya ofisimiz üzerinden doğrudan ulaşın.',
+    contactPhoneLabel: 'DOĞRUDAN TELEFON',
+    contactWhatsappLabel: 'WHATSAPP HATTI',
+    contactWhatsappAction: 'WhatsApp ile yazın →',
+    contactEmailLabel: 'E-POSTA ADRESİ',
+    contactAddressLabel: 'OFİS / KONUM',
+    contactDirectionsBtn: 'Yol Tarifi Al →',
+    contactOpenMaps: 'Google Haritalar’da Aç ↗',
+    footerBrandDesc:
+      'Imane Himmich liderliğinde uçtan uca Full-Stack yazılım mühendisliği, iOS & Android mobil mimari ve Google Ads performans yönetimi.',
+    footerNavTitle: 'HIZLI MENÜ',
+    footerServicesTitle: 'HİZMETLERİMİZ',
+    footerContactTitle: 'DOĞRUDAN İLETİŞİM',
     footerRights: 'Tüm hakları saklıdır.',
 
     projectDate: 'Proje Tarihi: 2026',
