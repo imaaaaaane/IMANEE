@@ -1,0 +1,250 @@
+---
+interface Props {
+  variant?: 'cinematic' | 'card';
+}
+
+const { variant = 'cinematic' } = Astro.props;
+const isCinematic = variant === 'cinematic';
+---
+
+{isCinematic ? (
+  <div class="relative w-full min-h-screen bg-[#131826] flex items-center justify-center pt-32 md:pt-24 pb-32 px-4 sm:px-8 lg:px-16 overflow-hidden select-none">
+    {/* Subtle Retro Ambient Glow & Grid */}
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(155,133,173,0.16),transparent_50%),radial-gradient(circle_at_80%_75%,rgba(139,44,62,0.18),transparent_50%)]"></div>
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.06]"
+      style="background-image: linear-gradient(to right, #E3D0C3 1px, transparent 1px), linear-gradient(to bottom, #E3D0C3 1px, transparent 1px); background-size: 32px 32px;"
+    ></div>
+
+    {/* Main Retro IDE Workspace Frame */}
+    <div class="relative z-10 w-full max-w-6xl">
+      <div class="rounded-xl border-2 border-[#E3D0C3]/45 bg-[#1B2234]/95 shadow-[0_24px_70px_rgba(0,0,0,0.65)] overflow-hidden backdrop-blur-sm">
+        
+        {/* Retro IDE Titlebar */}
+        <div class="bg-[#262F45] border-b-2 border-[#E3D0C3]/25 px-4 py-2.5 flex items-center justify-between font-mono text-xs">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-xs bg-[#D46A6A] inline-block border border-black/20"></span>
+            <span class="w-3 h-3 rounded-xs bg-[#E5C07B] inline-block border border-black/20"></span>
+            <span class="w-3 h-3 rounded-xs bg-[#8AB88A] inline-block border border-black/20"></span>
+            <span class="ml-3 text-[#E3D0C3] font-bold tracking-wide">IH-Softdev Studio</span>
+            <span class="hidden sm:inline text-[#E3D0C3]/50">— imane.profile.ts</span>
+          </div>
+          <div class="flex items-center gap-4 text-[11px] text-[#E3D0C3]/70">
+            <span class="hidden md:inline">TypeScript 5.8</span>
+            <span class="px-2 py-0.5 rounded bg-[#634D75]/50 text-[#E3D0C3] border border-[#E3D0C3]/20">UTF-8</span>
+          </div>
+        </div>
+
+        {/* IDE Main Content Grid */}
+        <div class="flex flex-col lg:flex-row relative lg:min-h-[475px]">
+          
+          {/* Left File Explorer */}
+          <aside class="hidden md:flex flex-col w-56 bg-[#151B2B] border-r border-[#E3D0C3]/15 p-4 font-mono text-xs text-[#C5CAE9]/80 shrink-0">
+            <div data-i18n="ideExplorerTitle" class="text-[10px] font-bold tracking-[0.2em] text-[#E3D0C3]/50 uppercase mb-3">
+              EXPLORER
+            </div>
+            <div class="space-y-1.5">
+              <div class="text-[#E3D0C3] font-semibold flex items-center gap-1.5">
+                <span class="text-[#9B85AD]">▾</span> ih-softdev
+              </div>
+              <div class="pl-3 space-y-1.5">
+                <div class="text-[#E3D0C3]/90 flex items-center gap-1.5">
+                  <span class="text-[#9B85AD]">▾</span> src
+                </div>
+                <div class="pl-4 space-y-1">
+                  <div class="px-2 py-1 rounded bg-[#634D75]/40 border-l-2 border-[#E3D0C3] text-[#E3D0C3] font-semibold flex items-center gap-1.5">
+                    <span class="text-[#7FB4CA]">TS</span> imane.profile.ts
+                  </div>
+                  <div class="px-2 py-0.5 text-[#9AA5CE] flex items-center gap-1.5">
+                    <span class="text-[#7FB4CA]">TS</span> system.bridge.ts
+                  </div>
+                  <div class="px-2 py-0.5 text-[#9AA5CE] flex items-center gap-1.5">
+                    <span class="text-[#E5C07B]">C</span> embedded.hal.c
+                  </div>
+                </div>
+                <div class="text-[#E3D0C3]/90 flex items-center gap-1.5 pt-1">
+                  <span class="text-[#9B85AD]">▾</span> projects
+                </div>
+                <div class="pl-4 space-y-1">
+                  <div class="px-2 py-0.5 text-[#9AA5CE] flex items-center gap-1.5">
+                    <span class="text-[#98C379]">TSX</span> impa-mobilya.tsx
+                  </div>
+                  <div class="px-2 py-0.5 text-[#9AA5CE] flex items-center gap-1.5">
+                    <span class="text-[#98C379]">TSX</span> albumevi.tsx
+                  </div>
+                </div>
+                <div class="px-2 py-0.5 text-[#9AA5CE]/70 flex items-center gap-1.5 pt-1">
+                  <span class="text-[#E3D0C3]/60">{'{}'}</span> package.json
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* Center TypeScript Editor */}
+          <div class="flex-1 p-4 sm:p-6 lg:pb-52 xl:pb-6 font-mono text-[11px] sm:text-xs md:text-[13px] leading-relaxed overflow-x-auto bg-[#181F30] text-[#D8DEE9] select-text">
+            <div class="grid grid-cols-[2rem_1fr] gap-x-2 min-w-[420px]">
+              <span class="text-[#596584] text-right pr-2 select-none">01</span>
+              <span data-i18n="ideComment" class="text-[#7C88A6] italic">// Developer Profile — IH SOFTDEV (Imane Himmich)</span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">02</span>
+              <span>
+                <span class="text-[#C678DD]">import type</span> {'{ '}
+                <span class="text-[#E5C07B]">EngineerProfile</span>, <span class="text-[#E5C07B]">SystemArch</span>
+                {' }'} <span class="text-[#C678DD]">from</span> <span class="text-[#98C379]">'@ih-softdev/core'</span>;
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">03</span>
+              <span></span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">04</span>
+              <span>
+                <span class="text-[#C678DD]">export const</span> <span class="text-[#61AFEF]">imane</span>: <span class="text-[#E5C07B]">EngineerProfile</span> = {'{'}
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">05</span>
+              <span class="pl-4">
+                name: <span class="text-[#98C379]">'Imane Himmich'</span>,
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">06</span>
+              <span class="pl-4">
+                brand: <span class="text-[#98C379]">'IH SOFTDEV'</span>,
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">07</span>
+              <span class="pl-4">
+                role: <span class="text-[#98C379]">'Computer Engineer &amp; Full-Stack Developer'</span>,
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">08</span>
+              <span class="pl-4">
+                domains: [<span class="text-[#98C379]">'Web Architecture'</span>, <span class="text-[#98C379]">'Mobile (Flutter)'</span>, <span class="text-[#98C379]">'Embedded'</span>],
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">09</span>
+              <span class="pl-4">
+                stack: [<span class="text-[#98C379]">'TypeScript'</span>, <span class="text-[#98C379]">'React'</span>, <span class="text-[#98C379]">'Astro'</span>, <span class="text-[#98C379]">'Python'</span>, <span class="text-[#98C379]">'Supabase'</span>],
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">10</span>
+              <span class="pl-4">
+                projects: [<span class="text-[#98C379]">'impamobilya.com'</span>, <span class="text-[#98C379]">'albumevi.com.tr'</span>],
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">11</span>
+              <span>{'}'};</span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">12</span>
+              <span></span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">13</span>
+              <span>
+                <span class="text-[#C678DD]">export async function</span> <span class="text-[#61AFEF]">bridgeSiliconToScreen</span>(arch: <span class="text-[#E5C07B]">SystemArch</span>) {'{'}
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">14</span>
+              <span class="pl-4">
+                <span class="text-[#C678DD]">const</span> build = <span class="text-[#C678DD]">await</span> arch.<span class="text-[#61AFEF]">compile</span>({'{ '}precision: <span class="text-[#D19A66]">true</span>, ux: <span class="text-[#98C379]">'seamless'</span>{' }'});
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">15</span>
+              <span class="pl-4">
+                <span class="text-[#C678DD]">return</span> build.<span class="text-[#61AFEF]">deploy</span>(imane.brand);
+              </span>
+
+              <span class="text-[#596584] text-right pr-2 select-none">16</span>
+              <span>{'}'}</span>
+            </div>
+          </div>
+
+          {/* Right Retro "Imane" Palette Card */}
+          <div class="hidden xl:flex flex-col w-52 m-5 rounded-lg border-2 border-[#E3D0C3]/75 bg-[#20283B] shadow-[6px_6px_0px_rgba(10,14,24,0.6)] self-start shrink-0 overflow-hidden">
+            <div class="bg-[#E3D0C3] text-[#1E2436] px-3 py-1.5 font-mono font-black text-sm flex items-center justify-between border-b-2 border-[#1E2436]/20">
+              <span class="tracking-tight">Imane</span>
+              <span class="text-xs font-bold px-1 border border-[#1E2436]/40 leading-none">×</span>
+            </div>
+            <div class="p-2.5 space-y-2">
+              <div class="h-8 rounded-xs bg-[#8B2C3E] border border-white/10"></div>
+              <div class="h-8 rounded-xs bg-[#263850] border border-white/10"></div>
+              <div class="h-8 rounded-xs bg-[#634D75] border border-white/10"></div>
+              <div class="pt-1.5 border-t border-[#E3D0C3]/15 flex items-center justify-between font-mono text-[11px]">
+                <span data-i18n="widgetRole" class="text-[#E3D0C3]/80 truncate pr-2">Full-Stack Engineer</span>
+                <span class="inline-flex items-center gap-1 text-[#8CE99A] shrink-0">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#8CE99A] animate-ping"></span>
+                  <span data-i18n="widgetStatus">Available</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Pop-up Translated Terminal Window (Docked cleanly in workspace) */}
+        <div class="px-4 pb-4 sm:px-6 sm:pb-6 bg-[#181F30] lg:bg-transparent lg:absolute lg:bottom-5 lg:right-6 lg:p-0 z-20">
+          <div class="w-full lg:w-[500px] rounded-lg border-2 border-[#E3D0C3]/80 bg-[#0E131F]/95 shadow-[0_16px_40px_rgba(0,0,0,0.75)] overflow-hidden select-text">
+            <div class="bg-[#2B344B] border-b border-[#E3D0C3]/35 px-3.5 py-1.5 flex items-center justify-between font-mono text-xs text-[#E3D0C3]">
+              <div class="flex items-center gap-2">
+                <span class="text-[#9B85AD] font-bold">&gt;_</span>
+                <span data-i18n="termTitle" class="font-semibold">terminal — ih-softdev</span>
+              </div>
+              <span class="text-[#E3D0C3]/60 text-[11px] tracking-widest">─ □ ×</span>
+            </div>
+            <div class="p-4 font-mono text-[11px] sm:text-xs leading-relaxed space-y-1.5">
+              <div class="text-[#9B85AD]">
+                $ <span data-i18n="termCmd" class="text-[#E3D0C3] font-semibold">npx ih-softdev --profile --lang=en</span>
+              </div>
+              <div data-i18n="termProfile" class="text-[#8CE99A] font-medium">
+                ✔ Profile loaded: Imane Himmich (IH SOFTDEV)
+              </div>
+              <div data-i18n="termRole" class="text-[#D8DEE9] whitespace-pre-wrap">→ Role    : Computer Engineer &amp; Full-Stack Dev</div>
+              <div data-i18n="termArch" class="text-[#D8DEE9] whitespace-pre-wrap">→ Focus   : Embedded Systems • Web &amp; Mobile Apps</div>
+              <div data-i18n="termStatus" class="text-[#E5C07B] whitespace-pre-wrap">→ Status  : Open for new collaborations</div>
+              <div class="text-[#9B85AD] pt-0.5 flex items-center gap-1.5">
+                <span>$</span>
+                <span class="inline-block w-2 h-3.5 bg-[#E3D0C3] animate-pulse"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+) : (
+  /* Compact Card Variant for Static Split View */
+  <div class="w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-[#634D75]/25 bg-[#161C2C] text-[#D8DEE9] font-mono select-text">
+    {/* Card Window Header */}
+    <div class="bg-[#252E44] border-b border-[#E3D0C3]/20 px-4 py-2.5 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#D46A6A]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#E5C07B]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#8AB88A]"></span>
+        <span class="ml-2 text-[#E3D0C3] font-bold">imane.profile.ts</span>
+      </div>
+      <span class="text-[11px] text-[#E3D0C3]/70">IH SOFTDEV</span>
+    </div>
+
+    {/* Compact Valid TypeScript Snippet */}
+    <div class="p-5 text-[11px] sm:text-xs leading-relaxed bg-[#181F30] border-b border-[#E3D0C3]/15 overflow-x-auto">
+      <div data-i18n="ideComment" class="text-[#7C88A6] italic mb-1">// Developer Profile — IH SOFTDEV (Imane Himmich)</div>
+      <div>
+        <span class="text-[#C678DD]">export const</span> <span class="text-[#61AFEF]">imane</span> = {'{'}
+      </div>
+      <div class="pl-4">name: <span class="text-[#98C379]">'Imane Himmich'</span>,</div>
+      <div class="pl-4">brand: <span class="text-[#98C379]">'IH SOFTDEV'</span>,</div>
+      <div class="pl-4">stack: [<span class="text-[#98C379]">'TypeScript'</span>, <span class="text-[#98C379]">'React'</span>, <span class="text-[#98C379]">'Astro'</span>, <span class="text-[#98C379]">'Flutter'</span>],</div>
+      <div class="pl-4">bridge: () =&gt; <span class="text-[#98C379]">'Silicon → Screen'</span>,</div>
+      <div>{'}'} <span class="text-[#C678DD]">as const</span>;</div>
+    </div>
+
+    {/* Compact Translated Terminal */}
+    <div class="p-4 bg-[#0E131F] text-[11px] sm:text-xs space-y-1">
+      <div class="text-[#9B85AD]">
+        $ <span data-i18n="termCmd" class="text-[#E3D0C3] font-semibold">npx ih-softdev --profile --lang=en</span>
+      </div>
+      <div data-i18n="termProfile" class="text-[#8CE99A]">✔ Profile loaded: Imane Himmich (IH SOFTDEV)</div>
+      <div data-i18n="termRole" class="text-[#D8DEE9] whitespace-pre-wrap">→ Role    : Computer Engineer &amp; Full-Stack Dev</div>
+      <div data-i18n="termStatus" class="text-[#E5C07B] whitespace-pre-wrap">→ Status  : Open for new collaborations</div>
+    </div>
+  </div>
+)}

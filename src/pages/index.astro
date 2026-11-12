@@ -1,162 +1,230 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import RetroIDE from '../components/RetroIDE.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
 import Contact from '../components/Contact.astro';
+import { translations } from '../i18n/translations';
 ---
 
-<Layout title="Imane Himmich | Creative Engineer">
+<Layout
+  title={translations.en.pageTitleHome}
+  description={translations.en.pageDescHome}
+  canonicalPath="/"
+  pageKey="pageTitleHome"
+  descKey="pageDescHome"
+>
 	<main class="w-full min-h-screen text-[#634D75] antialiased font-sans overflow-x-hidden">
     
     {/* Transparent Floating Navbar */}
-    <header id="main-nav" class="absolute top-0 w-full z-50 bg-transparent px-8 py-6 flex justify-between items-center transition-colors duration-300">
-      <a href="/" class="flex items-baseline gap-2 group cursor-pointer z-50">
-        <span class="nav-dynamic-text text-2xl lg:text-3xl font-black tracking-tighter text-[#E3D0C3] transition-colors duration-300 group-hover:text-white">IH</span>
-        <span class="nav-dynamic-text-muted text-xs lg:text-sm font-light tracking-[0.4em] text-[#E3D0C3]/70 uppercase">Softdev</span>
-      </a>
-      <div class="hidden md:flex gap-8 font-semibold text-sm">
-        <a href="#about" data-i18n="about" class="nav-dynamic-text text-[#E3D0C3] hover:text-white transition-colors">About</a>
-        <a href="#projects" data-i18n="projects" class="nav-dynamic-text text-[#E3D0C3] hover:text-white transition-colors">Projects</a>
-      </div>
-      <div class="flex items-center gap-6 text-sm font-semibold">
-        {/* Language Toggle */}
-        <div class="nav-dynamic-text hidden sm:flex gap-4 text-xs font-bold text-[#E3D0C3] tracking-widest">
-          <button data-lang-btn="en" class="nav-dynamic-border border-b-2 border-[#E3D0C3] pb-1 hover:text-white transition-colors">EN</button>
-          <button data-lang-btn="tr" class="opacity-60 hover:opacity-100 hover:text-white transition-all">TR</button>
-          <button data-lang-btn="ar" class="opacity-60 hover:opacity-100 hover:text-white transition-all">AR</button>
+    <header id="main-nav" class="absolute top-0 w-full z-50 bg-transparent px-4 sm:px-8 py-6 flex flex-col gap-3 md:flex-row md:justify-between md:items-center transition-colors duration-300">
+      <div class="w-full md:w-auto flex items-center justify-between">
+        <a href="/" aria-label="Imane Himmich — IH SOFTDEV Home" class="flex items-baseline gap-2 group cursor-pointer z-50 shrink-0">
+          <span class="nav-dynamic-text text-2xl lg:text-3xl font-black tracking-tighter text-[#E3D0C3] transition-colors duration-300">IH</span>
+          <span class="nav-dynamic-text-muted text-xs lg:text-sm font-light tracking-[0.4em] text-[#E3D0C3]/70 uppercase">Softdev</span>
+        </a>
+
+        {/* Mobile Right Controls */}
+        <div class="flex md:hidden items-center gap-3 text-sm font-semibold">
+          <div class="nav-dynamic-text flex items-center gap-2.5 text-xs font-bold text-[#E3D0C3] tracking-widest" role="group" aria-label="Language Switcher Mobile">
+            <button type="button" data-lang-btn="fr" aria-label="Switch site language to French (FR)" data-i18n-aria="langSwitchFrAria" class="border-b-2 border-transparent opacity-60 pb-1 hover:opacity-100 transition-all cursor-pointer">FR</button>
+            <button type="button" data-lang-btn="en" aria-label="Switch site language to English (EN)" data-i18n-aria="langSwitchEnAria" class="border-b-2 border-current opacity-100 pb-1 hover:opacity-100 transition-all cursor-pointer">EN</button>
+            <button type="button" data-lang-btn="tr" aria-label="Switch site language to Turkish (TR)" data-i18n-aria="langSwitchTrAria" class="border-b-2 border-transparent opacity-60 pb-1 hover:opacity-100 transition-all cursor-pointer">TR</button>
+          </div>
         </div>
-        <button id="view-toggle" class="nav-dynamic-text nav-dynamic-border nav-dynamic-btn px-4 py-1.5 rounded-full border border-[#E3D0C3] text-xs font-bold text-[#E3D0C3] hover:bg-[#E3D0C3] hover:text-[#634D75] transition-all">
+      </div>
+
+      {/* Primary Navigation: About | Services | Projects | Contact */}
+      <nav aria-label="Primary Navigation" class="flex items-center justify-center gap-5 sm:gap-6 lg:gap-8 font-semibold text-xs sm:text-sm md:absolute md:left-1/2 md:-translate-x-1/2">
+        <a href="#about" data-i18n="about" class="nav-dynamic-text nav-dynamic-link text-[#E3D0C3] hover:text-white transition-colors whitespace-nowrap">About</a>
+        <a href="#services" data-i18n="services" class="nav-dynamic-text nav-dynamic-link text-[#E3D0C3] hover:text-white transition-colors whitespace-nowrap">Services</a>
+        <a href="#projects" data-i18n="projects" class="nav-dynamic-text nav-dynamic-link text-[#E3D0C3] hover:text-white transition-colors whitespace-nowrap">Projects</a>
+        <a href="#contact-form" data-i18n="contact" class="nav-dynamic-text nav-dynamic-link text-[#E3D0C3] hover:text-white transition-colors whitespace-nowrap">Contact</a>
+      </nav>
+
+      {/* Desktop Right Controls */}
+      <div class="hidden md:flex items-center gap-4 lg:gap-6 text-sm font-semibold">
+        {/* Language Switcher: FR | EN | TR */}
+        <div class="nav-dynamic-text flex items-center gap-3 lg:gap-4 text-xs font-bold text-[#E3D0C3] tracking-widest" role="group" aria-label="Language Switcher">
+          <button
+            type="button"
+            data-lang-btn="fr"
+            aria-label="Switch site language to French (FR)"
+            data-i18n-aria="langSwitchFrAria"
+            class="border-b-2 border-transparent opacity-60 pb-1 hover:opacity-100 transition-all cursor-pointer"
+          >
+            FR
+          </button>
+          <button
+            type="button"
+            data-lang-btn="en"
+            aria-label="Switch site language to English (EN)"
+            data-i18n-aria="langSwitchEnAria"
+            class="border-b-2 border-current opacity-100 pb-1 hover:opacity-100 transition-all cursor-pointer"
+          >
+            EN
+          </button>
+          <button
+            type="button"
+            data-lang-btn="tr"
+            aria-label="Switch site language to Turkish (TR)"
+            data-i18n-aria="langSwitchTrAria"
+            class="border-b-2 border-transparent opacity-60 pb-1 hover:opacity-100 transition-all cursor-pointer"
+          >
+            TR
+          </button>
+        </div>
+        <button
+          type="button"
+          id="view-toggle"
+          data-view-mode="cinematic"
+          aria-label="Toggle hero display mode"
+          data-i18n-aria="viewToggleAria"
+          class="nav-dynamic-text nav-dynamic-border nav-dynamic-btn min-w-[168px] text-center whitespace-nowrap px-4 py-1.5 rounded-full border border-[#E3D0C3] text-xs font-bold text-[#E3D0C3] hover:bg-[#E3D0C3] hover:text-[#181F30] transition-all cursor-pointer"
+        >
           View: Cinematic
         </button>
       </div>
     </header>
 
     {/* Hero Section */}
-    <section id="hero" class="relative min-h-screen overflow-hidden">
-      
-      {/* Video View */}
+    <section id="hero" aria-labelledby="hero-primary-heading" class="relative min-h-screen overflow-hidden">
+      {/* Crawlable Semantic H1 & Intro Summary for Search Engines and Screen Readers */}
+      <div class="sr-only">
+        <h1 id="hero-primary-heading" data-i18n="seoHeroH1">
+          Imane Himmich | IH SOFTDEV — Full-Stack Developer &amp; Digital Strategist
+        </h1>
+        <p data-i18n="seoHeroSummary">
+          Portfolio of Imane Himmich (IH SOFTDEV), Full-Stack Software Developer and Computer Engineer specializing in React, Flutter, Node.js, Python, Supabase, Tailwind CSS, and scalable web &amp; mobile applications.
+        </p>
+      </div>
+
+      {/* Cinematic View (Live-Coded Retro IDE & Translated Terminal) */}
       <div id="video-view" class="block w-full h-full relative min-h-screen">
-        <video src="/imane.mp4" autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-2]"></video>
-        <div class="absolute bottom-24 left-0 w-full flex flex-wrap justify-center px-8 z-20 gap-4 animate-fade-in-up animation-delay-400">
-          <a href="#projects" class="group relative px-8 py-4 bg-[#9B85AD] text-white rounded-full overflow-hidden font-bold tracking-widest uppercase text-sm hover:bg-[#634D75] transition-colors flex items-center gap-3">
-            <span data-i18n="discover">Discover My Work</span> 
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
+        <RetroIDE variant="cinematic" />
+        <div class="absolute bottom-8 sm:bottom-10 left-0 w-full flex flex-wrap justify-center px-6 z-30 gap-4 animate-fade-in-up animation-delay-400">
+          <a href="#projects" class="group relative px-8 py-4 bg-[#9B85AD] text-white rounded-full overflow-hidden font-bold tracking-widest text-xs sm:text-sm hover:bg-[#634D75] transition-colors flex items-center justify-center min-w-[240px] shadow-lg">
+            <span data-i18n="discover">DISCOVER MY WORK →</span>
           </a>
-          <button data-i18n="download" class="px-8 py-4 bg-transparent border border-[#E3D0C3] text-[#E3D0C3] rounded-full font-bold tracking-widest uppercase text-xs hover:bg-[#C8AA96] hover:border-[#C8AA96] hover:text-white transition-colors">Download CV</button>
+          <button type="button" data-i18n="download" class="px-8 py-4 bg-[#131826]/70 backdrop-blur-xs border border-[#E3D0C3] text-[#E3D0C3] rounded-full font-bold tracking-widest text-xs hover:bg-[#C8AA96] hover:border-[#C8AA96] hover:text-white transition-colors min-w-[200px] cursor-pointer">
+            DOWNLOAD CV
+          </button>
         </div>
       </div>
 
       {/* Static Split View */}
-      <div id="static-view" class="hidden w-full min-h-screen flex-col lg:flex-row items-center justify-between gap-12 container mx-auto px-8 lg:px-24 relative z-10 pt-20">
+      <div id="static-view" class="hidden w-full min-h-screen flex-col lg:flex-row items-center justify-between gap-12 container mx-auto px-8 lg:px-20 relative z-10 pt-32 md:pt-28 pb-16">
         <div class="w-full lg:w-1/2 flex flex-col items-start relative z-20">
-          <h1 data-i18n="headline" class="text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-4 text-[#634D75] animate-fade-in-up">
+          <p data-i18n-html="headlineHtml" class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-tight mb-4 text-[#634D75] animate-fade-in-up">
             From Silicon<br/>To Screen.
-          </h1>
+          </p>
           <p data-i18n="description" class="text-lg lg:text-xl text-[#634D75]/80 max-w-lg mt-6 mb-8 font-medium leading-relaxed tracking-wide animate-fade-in-up animation-delay-200">
-            Computer Engineer specializing in full-stack development. Bridging the gap between robust embedded systems hardware and high-performance mobile architectures.
+            Computer Engineer and Full-Stack Developer behind IH SOFTDEV. Building scalable web platforms, cross-platform mobile apps, and high-ROAS acquisition systems.
           </p>
           <div class="flex flex-wrap gap-4 animate-fade-in-up animation-delay-400">
-            <a href="#projects" class="group relative px-8 py-4 bg-[#9B85AD] text-white rounded-full overflow-hidden font-bold tracking-widest uppercase text-sm hover:bg-[#634D75] transition-colors flex items-center gap-3">
-              <span data-i18n="discover">Discover My Work</span> 
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
+            <a href="#projects" class="group relative px-8 py-4 bg-[#9B85AD] text-white rounded-full overflow-hidden font-bold tracking-widest text-xs sm:text-sm hover:bg-[#634D75] transition-colors flex items-center justify-center min-w-[240px]">
+              <span data-i18n="discover">DISCOVER MY WORK →</span>
             </a>
-            <button data-i18n="download" class="px-8 py-4 bg-transparent border border-[#634D75] text-[#634D75] rounded-full font-bold tracking-widest uppercase text-xs hover:bg-[#C8AA96] hover:border-[#C8AA96] hover:text-white transition-colors">Download CV</button>
+            <button type="button" data-i18n="download" class="px-8 py-4 bg-transparent border border-[#634D75] text-[#634D75] rounded-full font-bold tracking-widest text-xs hover:bg-[#C8AA96] hover:border-[#C8AA96] hover:text-white transition-colors min-w-[200px] cursor-pointer">
+              DOWNLOAD CV
+            </button>
           </div>
         </div>
         <div class="w-full lg:w-1/2 flex justify-end relative z-20">
-          <div class="w-full max-w-lg xl:max-w-2xl ml-auto rounded-3xl overflow-hidden shadow-2xl border border-[#634D75]/20 lg:translate-x-20 scale-105">
-            <img src="/imane.mp4" class="hidden" /> {/* Fallback if needed */}
-            <video src="/imane.mp4" autoplay loop muted playsinline class="w-full h-auto object-cover opacity-90"></video>
+          <div class="w-full max-w-xl xl:max-w-2xl ml-auto">
+            <RetroIDE variant="card" />
           </div>
         </div>
       </div>
     </section>
 
-    {/* Projects Section */}
-    <section id="projects" class="py-20 md:py-24 px-8 lg:px-24 bg-[#E3D0C3] relative z-10 opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section">
-      <h2 class="text-5xl font-black text-[#634D75] mb-12 tracking-tighter">Selected Works.</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full max-w-4xl mx-auto opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section" style="transition-delay: 200ms;">
-        
-        {/* Card 1: IMPA */}
-        <div class="flex flex-col items-center justify-center p-10 md:p-12 rounded-3xl bg-white/25 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-          <a href="https://www.impamobilya.com/" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center">
-            <div class="h-20 flex items-center justify-center mb-6">
-              <img src="/impa.png" alt="IMPA Logo" class="h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_10px_rgba(99,77,117,0.15)] transition-transform duration-300 group-hover:scale-105" />
-            </div>
-            <span class="text-base font-bold text-[#634D75] group-hover:text-[#9B85AD] transition-colors flex items-center gap-1.5 underline-offset-4 group-hover:underline">
-              impamobilya.com
-              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </span>
-          </a>
-        </div>
-        
-        {/* Card 2: ALBÜMEVİ */}
-        <div class="flex flex-col items-center justify-center p-10 md:p-12 rounded-3xl bg-white/25 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-          <a href="https://albumevi.com.tr" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center">
-            <div class="h-20 flex items-center justify-center mb-6">
-              <img src="/albumevilogo.png" alt="Albumevi Logo" class="h-14 md:h-16 w-auto object-contain drop-shadow-[0_4px_10px_rgba(99,77,117,0.8)] transition-transform duration-300 group-hover:scale-105" />
-            </div>
-            <span class="text-base font-bold text-[#634D75] group-hover:text-[#9B85AD] transition-colors flex items-center gap-1.5 underline-offset-4 group-hover:underline">
-              albumevi.com.tr
-              <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </span>
-          </a>
-        </div>
+    {/* Section 1: 01 // ABOUT */}
+    <About />
 
+    {/* Section 2: 02 // SERVICES */}
+    <Services />
+
+    {/* Section 3: Selected Works (Projects) */}
+    <section id="projects" aria-labelledby="projects-heading" class="scroll-mt-8 py-20 md:py-24 px-8 lg:px-24 bg-[#E3D0C3] relative z-10 opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section">
+      <div class="max-w-7xl mx-auto">
+        <span
+          data-i18n="projectsTag"
+          class="font-mono text-xs font-bold tracking-[0.22em] text-[#634D75] bg-white/45 border border-[#634D75]/20 px-4 py-1.5 rounded-full inline-block mb-5"
+        >
+          03 // PROJECTS
+        </span>
+        <h2 id="projects-heading" data-i18n="projectsHeading" class="text-5xl font-black text-[#634D75] mb-12 tracking-tighter">Selected Works.</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 w-full max-w-4xl mx-auto opacity-0 translate-y-12 transition-all duration-[800ms] ease-out reveal-section" style="transition-delay: 200ms;">
+          
+          {/* Card 1: IMPA */}
+          <article class="flex flex-col items-center justify-center p-10 md:p-12 rounded-3xl bg-white/25 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+            <a href="https://www.impamobilya.com/" target="_blank" rel="noopener noreferrer" aria-label="IMPA Mobilya — Visit impamobilya.com" class="group flex flex-col items-center">
+              <div class="h-20 flex items-center justify-center mb-6">
+                <img
+                  src="/impa.png"
+                  alt="IMPA Mobilya — Full-Stack Web and Flutter Mobile Platform by Imane Himmich (IH SOFTDEV)"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_10px_rgba(99,77,117,0.15)] transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 class="text-base font-bold text-[#634D75] group-hover:text-[#9B85AD] transition-colors flex items-center gap-1.5 underline-offset-4 group-hover:underline">
+                <span class="sr-only">IMPA Mobilya — </span>
+                <span>impamobilya.com</span>
+                <svg aria-hidden="true" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </h3>
+            </a>
+          </article>
+          
+          {/* Card 2: ALBÜMEVİ */}
+          <article class="flex flex-col items-center justify-center p-10 md:p-12 rounded-3xl bg-white/25 backdrop-blur-md border border-white/40 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+            <a href="https://albumevi.com.tr" target="_blank" rel="noopener noreferrer" aria-label="Albümevi — Visit albumevi.com.tr" class="group flex flex-col items-center">
+              <div class="h-20 flex items-center justify-center mb-6">
+                <img
+                  src="/albumevilogo.png"
+                  alt="Albümevi — School Photography Web Platform and Cloud Infrastructure by Imane Himmich (IH SOFTDEV)"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-14 md:h-16 w-auto object-contain drop-shadow-[0_4px_10px_rgba(99,77,117,0.8)] transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <h3 class="text-base font-bold text-[#634D75] group-hover:text-[#9B85AD] transition-colors flex items-center gap-1.5 underline-offset-4 group-hover:underline">
+                <span class="sr-only">Albümevi — </span>
+                <span>albumevi.com.tr</span>
+                <svg aria-hidden="true" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </h3>
+            </a>
+          </article>
+
+        </div>
       </div>
     </section>
 
-    {/* My Journey Timeline Section */}
-    <section id="experience" class="py-24 px-8 lg:px-24 bg-[#E0E4DE] relative z-10 reveal-section opacity-0 translate-y-12 transition-all duration-[800ms] ease-out">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-5xl font-black text-[#721010] mb-16 tracking-tighter">My Journey.</h2>
-        <div class="relative border-l-2 border-[#634D75]/30 ml-4 md:ml-6 mt-12 space-y-12">
-          <!-- Item 1 -->
-          <div class="relative pl-8 md:pl-12 group">
-            <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-white border-4 border-[#8B2C3E] transition-all duration-500 ease-out group-hover:scale-150 group-hover:bg-[#634D75] group-hover:border-[#9B85AD] group-hover:shadow-[0_0_15px_rgba(99,77,117,0.5)]"></div>
-            <div class="transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-white/40 hover:shadow-[0_8px_30px_rgba(99,77,117,0.12)] p-6 rounded-2xl border border-transparent hover:border-white/60 backdrop-blur-sm cursor-default -mt-4">
-              <h3 class="text-[#1A2E40] text-xl md:text-2xl font-bold">Computer Engineering Degree</h3>
-              <p class="text-[#634D75] font-medium mt-1 mb-3">Present</p>
-              <p class="text-[#4A5568] leading-relaxed">Specializing in full-stack web architectures, embedded systems design, and high-performance algorithms. Consistently bridging the gap between hardware functionality and software accessibility with precision.</p>
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="relative pl-8 md:pl-12 group">
-            <div class="absolute -left-[11px] top-1 h-5 w-5 rounded-full bg-white border-4 border-[#8B2C3E] transition-all duration-500 ease-out group-hover:scale-150 group-hover:bg-[#634D75] group-hover:border-[#9B85AD] group-hover:shadow-[0_0_15px_rgba(99,77,117,0.5)]"></div>
-            <div class="transition-all duration-500 ease-out hover:-translate-y-2 hover:bg-white/40 hover:shadow-[0_8px_30px_rgba(99,77,117,0.12)] p-6 rounded-2xl border border-transparent hover:border-white/60 backdrop-blur-sm cursor-default -mt-4">
-              <h3 class="text-[#1A2E40] text-xl md:text-2xl font-bold">Software Engineering Intern</h3>
-              <p class="text-[#634D75] font-medium mt-1 mb-3">2026</p>
-              <p class="text-[#4A5568] leading-relaxed">Architected and deployed scalable front-end interfaces and integrated robust backend APIs for cross-functional enterprise applications, ensuring optimal performance and intuitive user experiences.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    {/* Contact Section */}
     <Contact />
 
     {/* Footer */}
     <footer class="bg-[#E3D0C3] border-t border-[#634D75]/20 text-[#634D75] py-12 text-center font-medium">
-      <p>© {new Date().getFullYear()} Imane Himmich. All rights reserved.</p>
+      <p>© {new Date().getFullYear()} Imane Himmich (IH SOFTDEV). <span data-i18n="footerRights">All rights reserved.</span></p>
     </footer>
 
-    {/* Scroll Buddy Mascot */}
-    <div id="scroll-buddy" class="fixed bottom-24 right-6 z-[100] cursor-pointer transition-transform duration-300">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9B85AD" class="w-14 h-14 drop-shadow-[0_5px_15px_rgba(155,133,173,0.4)] hover:fill-[#634D75] transition-colors duration-300">
+    {/* Scroll Buddy Mascot Button */}
+    <button
+      type="button"
+      id="scroll-buddy"
+      aria-label="Trigger scroll mascot jump animation"
+      data-i18n-aria="mascotAria"
+      class="fixed bottom-24 right-6 z-[100] cursor-pointer transition-transform duration-300 bg-transparent border-0 p-0"
+    >
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#9B85AD" class="w-14 h-14 drop-shadow-[0_5px_15px_rgba(155,133,173,0.4)] hover:fill-[#634D75] transition-colors duration-300">
         <path d="M12 2C8.13 2 5 5.13 5 9v11.14c0 1.05 1.13 1.69 2.04 1.18L9 20l1.96 1.09c.64.36 1.44.36 2.08 0L15 20l1.96 1.32c.91.51 2.04-.13 2.04-1.18V9c0-3.87-3.13-7-7-7zm-3 8a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3 3.5c-1.5 0-2.5-.5-2.5-.5s1 1.5 2.5 1.5 2.5-1.5 2.5-1.5-1 .5-2.5 .5z"/>
       </svg>
-    </div>
+    </button>
 
 	</main>
 
   <style is:global>
     html { scroll-behavior: smooth; }
-    body { top: 0 !important; }
-    .skiptranslate, .goog-te-banner-frame { display: none !important; }
-    #goog-gt-tt, .goog-te-balloon-frame { display: none !important; }
-    .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
 
     @keyframes jumpCute {
       0%, 100% { transform: translateY(0) scale(1); }
@@ -206,68 +274,46 @@ import Contact from '../components/Contact.astro';
         };
 
         if (isStatic) {
-          // Switch to Dark Colors (for light background)
           replaceCls('.nav-dynamic-text', 'text-[#E3D0C3]', 'text-[#634D75]');
           replaceCls('.nav-dynamic-text-muted', 'text-[#E3D0C3]/70', 'text-[#634D75]/70');
+          replaceCls('.nav-dynamic-link', 'hover:text-white', 'hover:text-[#9B85AD]');
           replaceCls('.nav-dynamic-border', 'border-[#E3D0C3]', 'border-[#634D75]');
           replaceCls('.nav-dynamic-btn', 'hover:bg-[#E3D0C3]', 'hover:bg-[#634D75]');
-          replaceCls('.nav-dynamic-btn', 'hover:text-[#634D75]', 'hover:text-white');
+          replaceCls('.nav-dynamic-btn', 'hover:text-[#181F30]', 'hover:text-white');
         } else {
-          // Switch to Light Colors (for dark video overlay)
           replaceCls('.nav-dynamic-text', 'text-[#634D75]', 'text-[#E3D0C3]');
           replaceCls('.nav-dynamic-text-muted', 'text-[#634D75]/70', 'text-[#E3D0C3]/70');
+          replaceCls('.nav-dynamic-link', 'hover:text-[#9B85AD]', 'hover:text-white');
           replaceCls('.nav-dynamic-border', 'border-[#634D75]', 'border-[#E3D0C3]');
           replaceCls('.nav-dynamic-btn', 'hover:bg-[#634D75]', 'hover:bg-[#E3D0C3]');
-          replaceCls('.nav-dynamic-btn', 'hover:text-white', 'hover:text-[#634D75]');
+          replaceCls('.nav-dynamic-btn', 'hover:text-white', 'hover:text-[#181F30]');
         }
       };
 
       if (toggleBtn && videoView && staticView) {
         toggleBtn.addEventListener('click', () => {
-            isVideoView = !isVideoView;
-            if (isVideoView) {
-                // Cinematic View
-                videoView.classList.remove('hidden');
-                videoView.classList.add('block');
-                staticView.classList.add('hidden');
-                staticView.classList.remove('flex');
-                toggleBtn.textContent = 'View: Cinematic';
-                updateNavColors(false);
-            } else {
-                // Static View
-                videoView.classList.add('hidden');
-                videoView.classList.remove('block');
-                staticView.classList.remove('hidden');
-                staticView.classList.add('flex');
-                toggleBtn.textContent = 'View: Static';
-                updateNavColors(true);
-            }
-        });
-      }
-      function changeLanguage(langCode) {
-        const select = document.querySelector('.goog-te-combo');
-        if (select) {
-          select.value = langCode;
-          // CRUCIAL FIX: Ensure the event bubbles up so Google detects it
-          select.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
-          
-          // Handle RTL layout for Arabic
-          if (langCode === 'ar') {
-            document.documentElement.dir = 'rtl';
+          isVideoView = !isVideoView;
+          if (isVideoView) {
+            videoView.classList.remove('hidden');
+            videoView.classList.add('block');
+            staticView.classList.add('hidden');
+            staticView.classList.remove('flex');
+            toggleBtn.setAttribute('data-view-mode', 'cinematic');
+            updateNavColors(false);
           } else {
-            document.documentElement.dir = 'ltr';
+            videoView.classList.add('hidden');
+            videoView.classList.remove('block');
+            staticView.classList.remove('hidden');
+            staticView.classList.add('flex');
+            toggleBtn.setAttribute('data-view-mode', 'static');
+            updateNavColors(true);
           }
-        } else {
-          console.log("Google Translate widget not ready yet.");
-        }
-      }
 
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          changeLanguage(btn.getAttribute('data-lang-btn'));
+          if (typeof window.__refreshPortfolioI18n === 'function') {
+            window.__refreshPortfolioI18n();
+          }
         });
-      });
+      }
 
       // Scroll Buddy Logic
       let lastScrollY = window.scrollY;
@@ -276,52 +322,32 @@ import Contact from '../components/Contact.astro';
       
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        
-        // If scrolling down and scrolled past 50px
         if (currentScrollY > lastScrollY && currentScrollY > 50) {
           if (!isJumping && buddy) {
             isJumping = true;
             buddy.classList.add('buddy-jump');
-            
-            // Remove the class after animation completes so it can jump again later
             setTimeout(() => {
               buddy.classList.remove('buddy-jump');
               isJumping = false;
-            }, 600); 
+            }, 600);
           }
         }
         lastScrollY = currentScrollY;
       });
 
-      // Also let the user click it to make it jump!
       if (buddy) {
-          buddy.addEventListener('click', () => {
-              if (!isJumping) {
-                isJumping = true;
-                buddy.classList.add('buddy-jump');
-                setTimeout(() => {
-                  buddy.classList.remove('buddy-jump');
-                  isJumping = false;
-                }, 600);
-              }
-          });
+        buddy.addEventListener('click', () => {
+          if (!isJumping) {
+            isJumping = true;
+            buddy.classList.add('buddy-jump');
+            setTimeout(() => {
+              buddy.classList.remove('buddy-jump');
+              isJumping = false;
+            }, 600);
+          }
+        });
       }
-
     });
-
   </script>
-
-  {/* Google Translate Hidden Widget & Scripts */}
-  <div id="google_translate_element" class="hidden"></div>
-  <script is:inline type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en', 
-        includedLanguages: 'en,tr,ar', 
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script is:inline type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </Layout>
